@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DangVanTho_5951071103_wdf
+{
+    public partial class Form1 : MetroFramework.Forms.MetroForm 
+
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            float fCPU = pCpu.NextValue();
+            float fRAM = pRam.NextValue();
+
+            metroProgressBarCPU.Value = (int)fCPU;
+            metroProgressBarRam.Value = (int)fRAM;
+
+            lblCPU.Text = string.Format("{0:0.00}%", fCPU);
+            lblRAM.Text = string.Format("{0:0.00}%", fRAM); 
+
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer.Start();
+        }
+    }
+}
